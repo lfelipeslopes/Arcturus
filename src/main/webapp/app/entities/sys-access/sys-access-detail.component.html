@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sysAccess">
+            <h2><span>Sys Access</span> {{sysAccess.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Access Id</span></dt>
+                <dd>
+                    <span>{{sysAccess.accessId}}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{sysAccess.status}}</span>
+                </dd>
+                <dt><span>Access</span></dt>
+                <dd>
+                    <span>{{sysAccess.access}}</span>
+                </dd>
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{sysAccess.description}}</span>
+                </dd>
+                <dt><span>Sys Module</span></dt>
+                <dd>
+                    <div *ngIf="sysAccess.sysModuleId">
+                        <a [routerLink]="['/sys-module', sysAccess.sysModuleId, 'view']">{{sysAccess.sysModuleId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sys-access', sysAccess.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

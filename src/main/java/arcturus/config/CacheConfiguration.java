@@ -43,6 +43,27 @@ public class CacheConfiguration {
             createCache(cm, arcturus.domain.User.class.getName());
             createCache(cm, arcturus.domain.Authority.class.getName());
             createCache(cm, arcturus.domain.User.class.getName() + ".authorities");
+            createCache(cm, arcturus.domain.SysModule.class.getName());
+            createCache(cm, arcturus.domain.SysAccess.class.getName());
+            createCache(cm, arcturus.domain.SysAccess.class.getName() + ".groupIds");
+            createCache(cm, arcturus.domain.SysIpGroup.class.getName());
+            createCache(cm, arcturus.domain.SysIpGroup.class.getName() + ".groupIds");
+            createCache(cm, arcturus.domain.SysIpGroupItem.class.getName());
+            createCache(cm, arcturus.domain.SysIpGroupItem.class.getName() + ".sysIpGroups");
+            createCache(cm, arcturus.domain.SysGroup.class.getName());
+            createCache(cm, arcturus.domain.SysGroup.class.getName() + ".ipGroupIds");
+            createCache(cm, arcturus.domain.SysGroup.class.getName() + ".accessIds");
+            createCache(cm, arcturus.domain.SysGroup.class.getName() + ".enterpriseIds");
+            createCache(cm, arcturus.domain.SysGroup.class.getName() + ".userIds");
+            createCache(cm, arcturus.domain.SysLicense.class.getName());
+            createCache(cm, arcturus.domain.SysEnterprise.class.getName());
+            createCache(cm, arcturus.domain.SysEnterprise.class.getName() + ".groupIds");
+            createCache(cm, arcturus.domain.SysEnterprise.class.getName() + ".userIds");
+            createCache(cm, arcturus.domain.SysPersonType.class.getName());
+            createCache(cm, arcturus.domain.SysPerson.class.getName());
+            createCache(cm, arcturus.domain.SysUser.class.getName());
+            createCache(cm, arcturus.domain.SysUser.class.getName() + ".groupIds");
+            createCache(cm, arcturus.domain.SysUser.class.getName() + ".enterpriseIds");
             // jhipster-needle-ehcache-add-entry
         };
     }

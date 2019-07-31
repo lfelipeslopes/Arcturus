@@ -1,0 +1,28 @@
+{
+    "name": "SysModule",
+    "fields": [
+        {
+            "fieldName": "moduleId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "moduleCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "moduleDescription",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190731182339",
+    "javadoc": "Module",
+    "entityTableName": "sys_module",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

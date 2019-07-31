@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity SysGroup.
+    -->
+    <changeSet id="20190731182343-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="sys_group_id"
+                                 baseTableName="sys_group_ip_group_id"
+                                 constraintName="fk_sys_group_ip_group_id_sys_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="ip_group_id_id"
+                                 baseTableName="sys_group_ip_group_id"
+                                 constraintName="fk_sys_group_ip_group_id_ip_group_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_ip_group"/>
+        
+        <addForeignKeyConstraint baseColumnNames="sys_group_id"
+                                 baseTableName="sys_group_access_id"
+                                 constraintName="fk_sys_group_access_id_sys_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="access_id_id"
+                                 baseTableName="sys_group_access_id"
+                                 constraintName="fk_sys_group_access_id_access_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_access"/>
+        
+    </changeSet>
+</databaseChangeLog>

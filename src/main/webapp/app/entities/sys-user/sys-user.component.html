@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span>Sys Users</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sys-user" [routerLink]="['/sys-user/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Sys User
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="sysUsers?.length === 0">
+        <span>No sysUsers found</span>
+    </div>
+    <div class="table-responsive" *ngIf="sysUsers?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userId"><span>User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span>Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sysPersonId"><span>Sys Person</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let sysUser of sysUsers ;trackBy: trackId">
+                <td><a [routerLink]="['/sys-user', sysUser.id, 'view' ]">{{sysUser.id}}</a></td>
+                <td>{{sysUser.userId}}</td>
+                <td>{{sysUser.status}}</td>
+                <td>{{sysUser.name}}</td>
+                <td>
+                    <div *ngIf="sysUser.sysPersonId">
+                        <a [routerLink]="['../sys-person', sysUser.sysPersonId , 'view' ]" >{{sysUser.sysPersonId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/sys-user', sysUser.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sys-user', sysUser.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'sys-user', { outlets: { popup: sysUser.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+{
+    "name": "SysAccess",
+    "fields": [
+        {
+            "fieldName": "accessId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "access",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "sysModule",
+            "otherEntityRelationshipName": "sysAccess",
+            "relationshipName": "sysModule",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "sysGroup",
+            "otherEntityRelationshipName": "accessId",
+            "relationshipName": "groupId",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190731182340",
+    "javadoc": "Access",
+    "entityTableName": "sys_access",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

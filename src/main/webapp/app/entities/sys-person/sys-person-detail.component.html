@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sysPerson">
+            <h2><span>Sys Person</span> {{sysPerson.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Person Id</span></dt>
+                <dd>
+                    <span>{{sysPerson.personId}}</span>
+                </dd>
+                <dt><span>Person Description</span></dt>
+                <dd>
+                    <span>{{sysPerson.personDescription}}</span>
+                </dd>
+                <dt><span>Person Contact</span></dt>
+                <dd>
+                    <span>{{sysPerson.personContact}}</span>
+                </dd>
+                <dt><span>Sys Person Type</span></dt>
+                <dd>
+                    <div *ngIf="sysPerson.sysPersonTypeId">
+                        <a [routerLink]="['/sys-person-type', sysPerson.sysPersonTypeId, 'view']">{{sysPerson.sysPersonTypeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sys-person', sysPerson.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

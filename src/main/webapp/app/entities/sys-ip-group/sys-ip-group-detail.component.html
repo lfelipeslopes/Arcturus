@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sysIpGroup">
+            <h2><span>Sys Ip Group</span> {{sysIpGroup.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Ip Group Id</span></dt>
+                <dd>
+                    <span>{{sysIpGroup.ipGroupId}}</span>
+                </dd>
+                <dt><span>Sys Ip Group Item</span></dt>
+                <dd>
+                    <div *ngIf="sysIpGroup.sysIpGroupItemId">
+                        <a [routerLink]="['/sys-ip-group-item', sysIpGroup.sysIpGroupItemId, 'view']">{{sysIpGroup.sysIpGroupItemId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sys-ip-group', sysIpGroup.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity SysEnterprise.
+    -->
+    <changeSet id="20190731182345-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="sys_license_id"
+                                 baseTableName="sys_enterprise"
+                                 constraintName="fk_sys_enterprise_sys_license_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_license"/>
+
+        <addForeignKeyConstraint baseColumnNames="sys_enterprise_id"
+                                 baseTableName="sys_enterprise_group_id"
+                                 constraintName="fk_sys_enterprise_group_id_sys_enterprise_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_enterprise"/>
+
+        <addForeignKeyConstraint baseColumnNames="group_id_id"
+                                 baseTableName="sys_enterprise_group_id"
+                                 constraintName="fk_sys_enterprise_group_id_group_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_group"/>
+        
+    </changeSet>
+</databaseChangeLog>
