@@ -1,0 +1,143 @@
+
+/**
+* Module
+*/
+entity SysModule{
+	moduleId Long,
+    moduleCode String,
+    moduleDescription String
+}
+
+/**
+* Access
+*/
+entity SysAccess{
+	accessId Long,
+	status String,
+	access String,
+	description String
+}
+
+
+/**
+* IpGroup
+*/
+entity SysIpGroup{
+	ipGroupId Long
+}
+
+/**
+* IpGroupItem
+*/
+entity SysIpGroupItem{
+	ipGroupItemId Long
+    initialIp String,
+    finalIp String
+}
+
+
+/**
+* Group
+*/
+entity SysGroup{
+    groupId Long,
+	status String,
+    group String
+}
+
+/**
+* License
+*/
+entity SysLicense{
+     licenseId Long,
+	 status String,
+	 licenseKey String,
+	 startDate ZonedDateTime,
+	 endDate ZonedDateTime,
+	 mainKey String
+}
+
+/**
+* Enterprise
+*/
+entity SysEnterprise{
+	enterpriseId Long,
+	status String,
+	enterprise String,
+	alias String
+}
+
+/**
+* Tipo de pessoa - Física/Jurídica
+*/
+entity SysPersonType{
+	personTypeId Long,
+    personTypeCode String,
+    personTypeDescription String
+}
+
+entity SysPerson{
+	personId Long
+    personDescription String,
+    personContact String
+}
+
+
+/**
+* 	GroupOperator
+*/
+entity SysUser{
+    userId Long,
+	status String,
+	name String
+}
+
+
+/**
+*	RELACIONAMENTOS
+*/
+relationship OneToOne{
+	SysAccess{sysModule} to SysModule
+}
+
+relationship OneToOne{
+	SysEnterprise{sysLicense} to SysLicense
+}
+
+relationship ManyToMany{
+	SysGroup{ipGroupId} to SysIpGroup{groupId}
+}
+
+relationship OneToMany{
+	SysIpGroupItem{sysIpGroup} to SysIpGroup 
+}
+
+relationship ManyToMany{
+	SysEnterprise{groupId} to SysGroup{enterpriseId}
+}
+
+relationship ManyToMany{
+	SysGroup{accessId} to SysAccess{groupId}
+}
+
+relationship ManyToMany{
+	SysUser{groupId} to SysGroup{userId}
+}
+
+relationship ManyToMany{
+	SysUser{enterpriseId} to SysEnterprise{userId}
+} 
+
+relationship ManyToOne{
+	SysPerson{sysPersonType} to SysPersonType
+}
+
+relationship OneToOne{
+	SysUser{sysPerson} to SysPerson
+}
+//Creates service classes, which will make the resource call the service class which will call the repository interface
+service all with serviceImpl
+// Set pagination options
+paginate SysEnterprise, SysUser, SysGroup with infinite-scroll
+//Creates DTO's and maps the fields using mapstruct generator
+dto all with mapstruct
