@@ -1,0 +1,28 @@
+{
+    "name": "SysPersonType",
+    "fields": [
+        {
+            "fieldName": "personTypeId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "personTypeCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "personTypeDescription",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190731182346",
+    "javadoc": "Tipo de pessoa - Física/Jurídica",
+    "entityTableName": "sys_person_type",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

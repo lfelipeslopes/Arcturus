@@ -1,0 +1,57 @@
+{
+    "name": "SysEnterprise",
+    "fields": [
+        {
+            "fieldName": "enterpriseId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "enterprise",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "alias",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "sysLicense",
+            "otherEntityRelationshipName": "sysEnterprise",
+            "relationshipName": "sysLicense",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "sysGroup",
+            "otherEntityRelationshipName": "enterpriseId",
+            "relationshipName": "groupId",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "sysUser",
+            "otherEntityRelationshipName": "enterpriseId",
+            "relationshipName": "userId",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190731182345",
+    "javadoc": "Enterprise",
+    "entityTableName": "sys_enterprise",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

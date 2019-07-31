@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span>Sys Licenses</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sys-license" [routerLink]="['/sys-license/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Sys License
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="sysLicenses?.length === 0">
+        <span>No sysLicenses found</span>
+    </div>
+    <div class="table-responsive" *ngIf="sysLicenses?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>License Id</span></th>
+            <th><span>Status</span></th>
+            <th><span>License Key</span></th>
+            <th><span>Start Date</span></th>
+            <th><span>End Date</span></th>
+            <th><span>Main Key</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sysLicense of sysLicenses ;trackBy: trackId">
+                <td><a [routerLink]="['/sys-license', sysLicense.id, 'view' ]">{{sysLicense.id}}</a></td>
+                <td>{{sysLicense.licenseId}}</td>
+                <td>{{sysLicense.status}}</td>
+                <td>{{sysLicense.licenseKey}}</td>
+                <td>{{sysLicense.startDate | date:'medium'}}</td>
+                <td>{{sysLicense.endDate | date:'medium'}}</td>
+                <td>{{sysLicense.mainKey}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/sys-license', sysLicense.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sys-license', sysLicense.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'sys-license', { outlets: { popup: sysLicense.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

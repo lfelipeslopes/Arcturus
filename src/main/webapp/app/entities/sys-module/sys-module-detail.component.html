@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sysModule">
+            <h2><span>Sys Module</span> {{sysModule.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Module Id</span></dt>
+                <dd>
+                    <span>{{sysModule.moduleId}}</span>
+                </dd>
+                <dt><span>Module Code</span></dt>
+                <dd>
+                    <span>{{sysModule.moduleCode}}</span>
+                </dd>
+                <dt><span>Module Description</span></dt>
+                <dd>
+                    <span>{{sysModule.moduleDescription}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sys-module', sysModule.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

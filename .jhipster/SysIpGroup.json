@@ -1,0 +1,35 @@
+{
+    "name": "SysIpGroup",
+    "fields": [
+        {
+            "fieldName": "ipGroupId",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "sysGroup",
+            "otherEntityRelationshipName": "ipGroupId",
+            "relationshipName": "groupId",
+            "otherEntityField": "id",
+            "ownerSide": false
+        },
+        {
+            "relationshipName": "sysIpGroupItem",
+            "otherEntityName": "sysIpGroupItem",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190731182341",
+    "javadoc": "IpGroup",
+    "entityTableName": "sys_ip_group",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sysLicense">
+            <h2><span>Sys License</span> {{sysLicense.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>License Id</span></dt>
+                <dd>
+                    <span>{{sysLicense.licenseId}}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{sysLicense.status}}</span>
+                </dd>
+                <dt><span>License Key</span></dt>
+                <dd>
+                    <span>{{sysLicense.licenseKey}}</span>
+                </dd>
+                <dt><span>Start Date</span></dt>
+                <dd>
+                    <span>{{sysLicense.startDate}}</span>
+                </dd>
+                <dt><span>End Date</span></dt>
+                <dd>
+                    <span>{{sysLicense.endDate}}</span>
+                </dd>
+                <dt><span>Main Key</span></dt>
+                <dd>
+                    <span>{{sysLicense.mainKey}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sys-license', sysLicense.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

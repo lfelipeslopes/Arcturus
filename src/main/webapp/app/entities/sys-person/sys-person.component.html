@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span>Sys People</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sys-person" [routerLink]="['/sys-person/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Sys Person
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="sysPeople?.length === 0">
+        <span>No sysPeople found</span>
+    </div>
+    <div class="table-responsive" *ngIf="sysPeople?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Person Id</span></th>
+            <th><span>Person Description</span></th>
+            <th><span>Person Contact</span></th>
+            <th><span>Sys Person Type</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sysPerson of sysPeople ;trackBy: trackId">
+                <td><a [routerLink]="['/sys-person', sysPerson.id, 'view' ]">{{sysPerson.id}}</a></td>
+                <td>{{sysPerson.personId}}</td>
+                <td>{{sysPerson.personDescription}}</td>
+                <td>{{sysPerson.personContact}}</td>
+                <td>
+                    <div *ngIf="sysPerson.sysPersonTypeId">
+                        <a [routerLink]="['../sys-person-type', sysPerson.sysPersonTypeId , 'view' ]" >{{sysPerson.sysPersonTypeId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/sys-person', sysPerson.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sys-person', sysPerson.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'sys-person', { outlets: { popup: sysPerson.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

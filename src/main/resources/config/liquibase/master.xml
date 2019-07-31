@@ -14,6 +14,22 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182339_added_entity_SysModule.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182340_added_entity_SysAccess.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182341_added_entity_SysIpGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182342_added_entity_SysIpGroupItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182343_added_entity_SysGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182344_added_entity_SysLicense.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182345_added_entity_SysEnterprise.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182346_added_entity_SysPersonType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182347_added_entity_SysPerson.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182348_added_entity_SysUser.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190731182340_added_entity_constraints_SysAccess.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182341_added_entity_constraints_SysIpGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182343_added_entity_constraints_SysGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182345_added_entity_constraints_SysEnterprise.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182347_added_entity_constraints_SysPerson.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190731182348_added_entity_constraints_SysUser.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

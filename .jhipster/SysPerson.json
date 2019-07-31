@@ -1,0 +1,35 @@
+{
+    "name": "SysPerson",
+    "fields": [
+        {
+            "fieldName": "personId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "personDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "personContact",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sysPersonType",
+            "otherEntityRelationshipName": "sysPerson",
+            "relationshipName": "sysPersonType",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190731182347",
+    "entityTableName": "sys_person",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

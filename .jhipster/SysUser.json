@@ -1,0 +1,53 @@
+{
+    "name": "SysUser",
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "sysPerson",
+            "otherEntityRelationshipName": "sysUser",
+            "relationshipName": "sysPerson",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "sysGroup",
+            "otherEntityRelationshipName": "userId",
+            "relationshipName": "groupId",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "sysEnterprise",
+            "otherEntityRelationshipName": "userId",
+            "relationshipName": "enterpriseId",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190731182348",
+    "javadoc": "GroupOperator",
+    "entityTableName": "sys_user",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

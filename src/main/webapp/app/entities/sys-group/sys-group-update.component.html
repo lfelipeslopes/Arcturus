@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-sys-group-heading">Create or edit a Sys Group</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_groupId">Group Id</label>
+                    <input type="number" class="form-control" name="groupId" id="field_groupId"
+                           formControlName="groupId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_group">Group</label>
+                    <input type="text" class="form-control" name="group" id="field_group"
+                           formControlName="group"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="field_ipGroupIds">Ip Group Id</label>
+                    <select class="form-control" id="field_ipGroupIds" multiple name="ipGroupIds" formControlName="ipGroupIds">
+                        <option [ngValue]="getSelected(editForm.get('ipGroupIds').value, sysIpGroupOption)" *ngFor="let sysIpGroupOption of sysipgroups; trackBy: trackSysIpGroupById">{{sysIpGroupOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_accessIds">Access Id</label>
+                    <select class="form-control" id="field_accessIds" multiple name="accessIds" formControlName="accessIds">
+                        <option [ngValue]="getSelected(editForm.get('accessIds').value, sysAccessOption)" *ngFor="let sysAccessOption of sysaccesses; trackBy: trackSysAccessById">{{sysAccessOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

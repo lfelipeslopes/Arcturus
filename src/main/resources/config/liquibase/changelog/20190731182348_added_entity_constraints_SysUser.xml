@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity SysUser.
+    -->
+    <changeSet id="20190731182348-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="sys_person_id"
+                                 baseTableName="sys_user"
+                                 constraintName="fk_sys_user_sys_person_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_person"/>
+
+        <addForeignKeyConstraint baseColumnNames="sys_user_id"
+                                 baseTableName="sys_user_group_id"
+                                 constraintName="fk_sys_user_group_id_sys_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="group_id_id"
+                                 baseTableName="sys_user_group_id"
+                                 constraintName="fk_sys_user_group_id_group_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_group"/>
+        
+        <addForeignKeyConstraint baseColumnNames="sys_user_id"
+                                 baseTableName="sys_user_enterprise_id"
+                                 constraintName="fk_sys_user_enterprise_id_sys_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="enterprise_id_id"
+                                 baseTableName="sys_user_enterprise_id"
+                                 constraintName="fk_sys_user_enterprise_id_enterprise_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_enterprise"/>
+        
+    </changeSet>
+</databaseChangeLog>
